@@ -9,7 +9,7 @@ for(let x = 1; x <= 31; x++){
         date = "#dispatchDay" + x;
     }
 
-    let a = document.querySelector(date);
+    let a = parent.main.document.querySelector(date);
     if(a.selectedIndex == "1"){
         a.value = "0";
     }
