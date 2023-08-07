@@ -1,3 +1,8 @@
+/* 作業実績を入力するスクリプト
+	備考・出勤時刻・退勤時刻・休憩時刻を入力できる
+  備考は固定文言（日にちごとに別々の文言を設定することはできない）
+*/
+
 /** 関数式 **/
 const isMatsubi = () => {
   if (parent.main.document.getElementById("day31")) {
