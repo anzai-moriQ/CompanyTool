@@ -1,4 +1,9 @@
-/ 関数式
+/* NPC報告書を入力するスクリプト
+	スクリプト実行日までの日にち分入力可能
+	出勤時刻・休憩時刻・退勤時刻を入力でき。
+*/
+
+// 関数式
 const sliceTime = (e, msg) => {
   if (!e) alert(msg);
   const hh = parseInt(e.slice(0, 2)).toString();
@@ -29,14 +34,10 @@ const isTarget = (hiduke, targetDate) => {
   let startTime = prompt("出勤時刻を４桁で入力してください。", "0900");
   let endTime = prompt("退勤時刻を４桁で入力してください。", "1800");
   let restTime = prompt("休憩時間を４桁で入力してください。", "0100");
-  let adjustTime = prompt("認勤時間を４桁で入力してください。", "0000");
 
   startTime = sliceTime(startTime, "出勤時刻入力漏れ");
   endTime = sliceTime(endTime, "退勤時刻入力漏れ");
   restTime = sliceTime(restTime, "休憩時間入力漏れ");
-  if (adjustTime) {
-    adjustTime = sliceTime(adjustTime, "認勤時間入力漏れ");
-  }
 
   // 作業日までの項目のみに入力を行うため、今日の日付を取得
   const target = ("00" + hiduke.getDate()).slice(-2);
@@ -53,16 +54,6 @@ const isTarget = (hiduke, targetDate) => {
       startElem.value = startTime;
       endElem.value = endTime;
       restElem.value = restTime;
-      if (!adjustTime || adjustTime == "00:00") {
-        const adjustElem = parent.main.document.getElementById(
-          "ceWorkHour" + iStr
-        );
-        adjustElem.value = adjustTime;
-      }
     }
   }
-
-  //  病欠日数の入力
-  const sickDay = parent.main.document.getElementById("SickOutDays");
-  sickDay.value = sickDay.value || "0";
 })();
