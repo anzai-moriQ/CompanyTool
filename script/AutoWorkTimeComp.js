@@ -10,7 +10,10 @@ const isMatsubi = () => {
   } else if (parent.main.documrnt.getElementById("30")) {
     return "30";
   } else if (parent.main.document.getElementById("29")) {
+    // うるう年
     return "29";
+  } else if (parent.main.document.getElementById("29")) {
+    return "28"
   } else {
     return false;
   }
@@ -24,7 +27,7 @@ const start = parent.main.document.getElementById("startHour").value;
 const end = parent.main.document.getElementById("endHour").value;
 const rest = "1:00";
 
-// 30日・31日・29日なのか求める
+// 30日・31日・29日・28日なのか求める
 const matsubi = isMatsubi();
 if (!matsubi) alert("サイトが壊れています");
 
